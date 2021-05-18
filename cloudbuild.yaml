@@ -11,4 +11,4 @@ steps:
     - 'JWT_TOKEN_SECRET=${_JWT_TOKEN_SECRET}'
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["app", "deploy"]
-timeout: "1600s"
+timeout: "2600s"
