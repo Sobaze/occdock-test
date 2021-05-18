@@ -1,0 +1,13 @@
+
+.DetailSidebar {
+  position: absolute;
+  top: -16%;
+  right: -2%;
+  min-height: 100vh;
+  z-index: 9999;
+  box-shadow: 20px 20px 30px rgba(0,0,0,.4);
+}
+
+.DetailSidebar .card {
+  min-height: 100vh;
+}
