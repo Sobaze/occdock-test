@@ -4,7 +4,6 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
     "devstart": "concurrently \"npm run server\" \"npm run client\"",
     "client": "npm start --prefix client",
     "server": "cd server && nodemon --inspect server.js",
