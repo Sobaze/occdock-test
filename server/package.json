@@ -9,6 +9,7 @@
     "devstart": "concurrently \"npm run server\" \"npm run client\"",
     "client": "cd .. && npm start --prefix client",
     "server": "nodemon --inspect server.js",
+    "create-env": "printenv > .env",
     "test-setup": "node ./test/setup.js",
     "test-teardown": "node ./test/teardown.js",
     "run-postman/newman": "newman run ../docs/postman/OCCDEC.postman_collection.json -e ../docs/postman/OCCDEC.postman_environment.json || exit 1"
