@@ -1,3 +1,4 @@
+runtime: nodejs14
 resources:
   cpu: .5
   memory_gb: 0.5
