@@ -6,9 +6,9 @@ steps:
   entrypoint: npm
   args: ["run", "create-env"]
   env:
-    - 'API_VERSION'=${_API_VERSION}
-    - 'CONNECTION_STRING'=${_CONNECTION_STRING}
-    - 'JWT_TOKEN_SECRET'=${_JWT_TOKEN_SECRET}
+    - 'API_VERSION=${_API_VERSION}'
+    - 'CONNECTION_STRING=${_CONNECTION_STRING}'
+    - 'JWT_TOKEN_SECRET=${_JWT_TOKEN_SECRET}'
 - name: "gcr.io/cloud-builders/gcloud"
   args: ["app", "deploy"]
 timeout: "1600s"
