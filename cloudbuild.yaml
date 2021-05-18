@@ -6,7 +6,6 @@ steps:
   entrypoint: npm
   args: ["run", "create-env"]
   env:
-    - 'MY_SECRET_KEY=${_MY_SECRET_KEY}'
     - 'API_VERSION'=${_API_VERSION}
     - 'CONNECTION_STRING'=${_CONNECTION_STRING}
     - 'JWT_TOKEN_SECRET'=${_JWT_TOKEN_SECRET}
