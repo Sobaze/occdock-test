@@ -1,7 +1,7 @@
 steps:
 # Frontend deployment
 # Step 1 for installing dependencies
-- name: node:14
+- name: "gcr.io/cloud-builders/npm"
   dir: 'client'
   args: ["install"]
 
