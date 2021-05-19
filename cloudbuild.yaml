@@ -1,14 +1,40 @@
 steps:
-- name: node:14
-  entrypoint: npm
-  args: ["install"]
-- name: node:14
-  entrypoint: npm
-  args: ["run", "create-env"]
-  env:
-    - 'API_VERSION=${_API_VERSION}'
-    - 'CONNECTION_STRING=${_CONNECTION_STRING}'
-    - 'JWT_TOKEN_SECRET=${_JWT_TOKEN_SECRET}'
-- name: "gcr.io/cloud-builders/gcloud"
-  args: ["app", "deploy"]
-timeout: "2600s"
+# Frontend deployment
+# Step 1 for installing dependencies
+  - name: "gcr.io/cloud-builders/npm"
+    dir: 'client'
+    args: ["install"]
+
+# Step 2 creating optmized build
+  - name: "gcr.io/cloud-builders/npm"
+    dir: 'client'
+    args: ["run", "build"]
+
+# Step 3 execute client.yaml in ui folder and deploy it
+  - name: "gcr.io/cloud-builders/gcloud"
+    dir: 'client'
+    args: ["app", "deploy"]
+    timeout: "30m0s"
+
+# Backend deploy
+# Step 4 
+  - name: node:14
+    entrypoint: npm
+    dir: 'server'
+    args: ["install"]
+
+  - name: node:14
+    entrypoint: npm
+    dir: 'server'
+    args: ["run", "create-env"]
+    env:
+      - 'API_VERSION=${_API_VERSION}'
+      - 'CONNECTION_STRING=${_CONNECTION_STRING}'
+      - 'JWT_TOKEN_SECRET=${_JWT_TOKEN_SECRET}'
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ["app", "deploy"]
+  timeout: "2600s"
+# Step 5 make sure dispatch.yaml is deployed
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ["app", "deploy", "dispatch.yaml"]
+    timeout: "30m0s"
