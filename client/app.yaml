@@ -3,17 +3,13 @@ env: flex
 instance_class: F1
 threadsafe: true
 service: default
+
 handlers:
-  - url: /
-    static_files: build/index.html
-    upload: build/index.html
-  - static_dir: build
-# handlers:
-#     # Serve all static files with urls ending with a file extension
-#     - url: /(.*\..+)$
-#       static_files: build/\1
-#       upload: build/(.*\..+)$
-#       # catch all handler to index.html
-#     - url: /.*
-#       static_files: build/index.html
-#       upload: build/index.html
+    # Serve all static files with urls ending with a file extension
+    - url: /(.*\..+)$
+      static_files: build/\1
+      upload: build/(.*\..+)$
+      # catch all handler to index.html
+    - url: /.*
+      static_files: build/index.html
+      upload: build/index.html
