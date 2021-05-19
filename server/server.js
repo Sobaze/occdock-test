@@ -5,7 +5,7 @@ const path = require('path')
 const app = express()
 const simplerr = require('simplerr')
 const mongoose = require('./configs/mongoose')
-if (process.env.NODE_ENV !== 'production') require('dotenv').config()
+require('dotenv').config()
 const knownErrors = require('./utils/knownErrors')
 
 mongoose.connect().catch(error => {
