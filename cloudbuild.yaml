@@ -32,7 +32,7 @@ steps:
     - 'CONNECTION_STRING=${_CONNECTION_STRING}'
     - 'JWT_TOKEN_SECRET=${_JWT_TOKEN_SECRET}'
 - name: "gcr.io/cloud-builders/gcloud"
-  args: ["app", "deploy"]
+  args: ["app", "deploy", "api.yaml"]
   timeout: "2600s"
 # Step 5 make sure dispatch.yaml is deployed
 - name: "gcr.io/cloud-builders/gcloud"
